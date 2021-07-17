@@ -8,8 +8,11 @@ class HelloWord(Resource):
   def get(self):
     return {"data":"Hello World"}
 
+  def post(self,name,age):
+    return {"name":name,"age":age}
+
 # routes
-api.add_resource(HelloWord,"/helloworld")
+api.add_resource(HelloWord,"/helloworld/<string:name>/<int:age>")
 
 if __name__ =="__main__":
   app.run(debug=True)
